@@ -20,20 +20,3 @@ describe 'navigate' do
     expect(page).to have_css("p", text: "My article desc")
   end
 end
-
-describe 'form' do
-
-
-  it 'shows an edit form that submits content and redirects and prints out params' do
-    @article = Article.create(title: "My Article", description: "My article desc")
-
-    visit edit_article_path(@article)
-
-    fill_in 'article[title]', with: "My edit"
-    fill_in 'article[description]', with: "My article description"
-
-    click_on "Submit Article"
-
-    expect(page).to have_content("My edit")
-  end
-end
